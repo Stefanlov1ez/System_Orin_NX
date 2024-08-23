@@ -101,20 +101,27 @@ NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SD
 
 ## 第五步：编译并安装 `cv_bridge`
 
-1. 进入 `autonomy_stack_diablo_setup/src/utilities/cv_bridge` 目录：
+1. 克隆仓库并切换humble分支
+
+    ```bash
+    git clone https://github.com/jizhang-cmu/autonomy_stack_diablo_setup.git
+    cd autonomy_stack_diablo_setup
+    git checkout humble   
+    ```
+
+2. 进入 `autonomy_stack_diablo_setup/src/utilities/cv_bridge` 目录：
+
+   ```bash
+    cd autonomy_stack_diablo_setup/src/utilities/cv_bridge
+    ```
+
+3. 编译并安装 `cv_bridge`：
 
    ```bash
    cd autonomy_stack_diablo_setup/src/utilities/cv_bridge
-   ```
-
-2. 编译并安装 `cv_bridge`：
-
-   ```bash
    mkdir build && cd build
    make && sudo make install
    ```
-
-   确保编译和安装过程没有报错。
 
 ## 第六步：编译并测试 `autonomy_stack_diablo_setup`
 
