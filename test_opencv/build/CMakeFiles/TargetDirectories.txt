@@ -1,3 +1,0 @@
-/home/robot/test_opencv/build/CMakeFiles/CudaOpenCVTest.dir
-/home/robot/test_opencv/build/CMakeFiles/edit_cache.dir
-/home/robot/test_opencv/build/CMakeFiles/rebuild_cache.dir
