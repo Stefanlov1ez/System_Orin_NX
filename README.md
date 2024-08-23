@@ -142,3 +142,6 @@ NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SD
    ros2 launch face_detection facefollow_ctrl.launch.py
    ```
 
+## tx-utils（可选）
+
+- 由于 `jtop/htop/nvtop` 均不可用,目前使用tegrastats进行性能监督与可视化,进入tx-utils文件夹查看使用方法
