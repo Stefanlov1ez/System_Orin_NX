@@ -1,7 +1,7 @@
 
 # System_Orin_NX
 
-本指南详细描述了在 NVIDIA Jetson Orin NX 上设置开发环境的步骤，包括安装 ROS 2、JetPack SDK、OpenCV 4.9，以及 `autonomy_stack_diablo_setup` 和 `facefollow` 功能模块的测试。
+NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SDK、OpenCV 4.9，以及 `autonomy_stack_diablo_setup` 和 `facefollow` 功能模块的测试。
 
 ## NOTE
 
