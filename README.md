@@ -1,15 +1,17 @@
 
 # System_Orin_NX
 
-NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SDK、OpenCV 4.9，以及 `autonomy_stack_diablo_setup` 和 `facefollow` 功能模块的测试。
+NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SDK、OpenCV 4.9(with CUDA)，以及 `autonomy_stack_diablo_setup` 和 `facefollow` 功能模块的测试。
 
 ## NOTE
 
-1. 以下安装省略了部分基本操作，包括但不限于**编译/安装/sudo权限/查看端口/ROS2**的一些基本命令
+1. 以下安装只提供了部分参考步骤，省略了较多基本重复流程，包括但不限于**编译/安装/sudo权限/查看端口/ROS2**的一些基本命令
 
 2. cuda/cudnn/opencv(with cuda)/tensorRT均提供了测试用例，可分别进入每个文件夹进行编译，并运行测试
 
-3. 如若遇到编译/运行错误，可自行核对 `system_deps.txt` 中的提供的依赖版本
+3. 在autonomy_stack_diablo_setup的编译安装过程中，注意apt安装可能会导致opencv和cv_bridge自动安装4.5版本，即覆盖之前的opencv4.9.0，注意按说明步骤安装4.9.0版本的opencv和cv_bridge
+
+4. 如若遇到编译/运行错误，可自行核对 `system_deps.txt` 中的提供的依赖版本
 
 ## 第一步：安装 ROS 2（Humble 版本）
 
@@ -62,7 +64,7 @@ NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SD
 3. 编译过程可能需要一些时间，安装完成后，可以通过以下命令验证安装是否成功：
 
    ```bash
-   python3 -c "import cv2; print(cv2.__version__)"
+   python3 -c "import cv2; print(f'OpenCV Version: {cv2.__version__}'); print(f'CUDA Support: {cv2.cuda.getCudaEnabledDeviceCount() > 0}')"
    ```
 
    如果显示 `4.9.0`，则表示安装成功。
