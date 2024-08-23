@@ -27,13 +27,29 @@ NVIDIA Jetson Orin NX 上配置环境的步骤，包括安装 ROS 2、JetPack SD
    - CUDA Toolkit
    - TensorRT (可选)
 
-2. 选择离线下载 `.deb` 包，无 ` Host Machine` 模式，请将其转移到 Jetson Orin NX 上，并参考以下命令进行安装：
+2. 选择离线下载 `.deb` 包，无 `Host Machine` 模式，请将其转移到 Jetson Orin NX 上，并参考以下命令进行安装：
 
    ```bash
    sudo dpkg -i *.deb
    sudo apt-get update
    sudo apt-get -f install
    ```
+
+   **NOTE:** 由于是离线安装，下载的 `.deb` 包解压后可能会在 `var` 文件夹中生成多个 `.deb` 文件。这些 `.deb` 文件之间存在依赖关系，因此需要按特定顺序安装。如果你直接安装某个 `.deb` 文件并遇到依赖错误，可参考以下步骤进行处理：
+   
+   1. **首先安装所有依赖文件**：手动查找并安装解压后的文件夹中的依赖项 `.deb` 文件。你可以使用以下命令批量安装：
+
+      ```bash
+      sudo dpkg -i /path/to/deb/files/*.deb
+      ```
+
+   2. **修复依赖关系**：如果出现依赖错误，运行以下命令修复缺少的依赖：
+
+      ```bash
+      sudo apt-get -f install
+      ```
+
+   3. **再次安装主组件**：最后，确保主组件（如 CUDA、cuDNN 等）已经安装完毕，或者再次运行 `dpkg -i` 安装主组件的 `.deb` 文件。
 
 3. 安装完成后，在对应的测试文件夹中编译并运行代码，以验证各个组件是否正确安装。例如，测试 CUDA：
 
